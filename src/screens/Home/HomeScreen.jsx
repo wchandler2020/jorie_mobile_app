@@ -6,20 +6,41 @@ import {
   FlatList,
   TouchableOpacity,
   Image,
-  ImageBackground,
+  ImageBackground
+  
 } from "react-native";
 import React, { useState } from "react";
 import AppNavigation from "../../navigation/AppNavigation";
 import Header from "../../components/header/Header";
 import header_bg from "../../../assets/images/home_screen/app_home_bg.jpg";
 import { kpiDummyData } from "../../../data/kpi_data";
-import { COLORS, SIZES, FONTS } from "../../constants/colors.js";
+import ChartCard from "../../components/chartCards/ChartCard";
+import ExampleChart from "../../components/dataCharts/ExampleChart";
+import ExampleChart2 from "../../components/ExampleChart2";
+// import { COLORS, SIZES, FONTS } from "../../constants/colors.js";
+
+
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     paddingBottom: 130,
+    shadowColor: '#333',
+    textShadowOffset: {
+      width: 5,
+      height: 5
+    },
+    shadowOpacity: 0.50,
+    shadowRadius: 5,
+    elevation: 9
   },
+  cardCantainer: {
+    flex: 1,
+    marginTop: 60,
+    alignItems: 'center',
+    paddingVertical: 24,
+    paddingHorizontal: 24,
+  }
 });
 
 const HomeScreen = () => {
@@ -57,7 +78,7 @@ const HomeScreen = () => {
     );
 
     return (
-      <View style={{ width: "100%", height: 260, flex: 1, justifyContent: "center" }}>
+      <View style={{ width: "100%", height: 300, flex: 1, justifyContent: "center" }}>
         <ImageBackground
           source={header_bg}
           resizeMode="cover"
@@ -107,7 +128,7 @@ const HomeScreen = () => {
           <View
             style={{
               position: "absolute",
-              bottom: "-70%",
+              bottom: "-60%",
             }}
           >
             <Text style={{ color: "#fff", marginLeft: 24, fontSize: 18 }}>
@@ -130,6 +151,10 @@ const HomeScreen = () => {
   return (
     <ScrollView>
       <View style={styles.container}>{renderHeader()}</View>
+      <View style={styles.cardCantainer}>
+        <ExampleChart />
+        <ExampleChart2 />
+      </View>
     </ScrollView>
   );
 };
