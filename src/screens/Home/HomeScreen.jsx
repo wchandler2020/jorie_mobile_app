@@ -16,7 +16,7 @@ import header_bg from "../../../assets/images/home_screen/app_home_bg.jpg";
 import { kpiDummyData } from "../../../data/kpi_data";
 import ChartCard from "../../components/chartCards/ChartCard";
 import ExampleChart from "../../components/dataCharts/ExampleChart";
-import ExampleChart2 from "../../components/ExampleChart2";
+// import ExampleChart2 from "../../components/ExampleChart2";
 // import { COLORS, SIZES, FONTS } from "../../constants/colors.js";
 
 
@@ -153,7 +153,7 @@ const HomeScreen = () => {
       <View style={styles.container}>{renderHeader()}</View>
       <View style={styles.cardCantainer}>
         <ExampleChart />
-        <ExampleChart2 />
+        {/* <ExampleChart2 /> */}
       </View>
     </ScrollView>
   );
