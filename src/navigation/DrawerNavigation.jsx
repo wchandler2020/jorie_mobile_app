@@ -1,13 +1,11 @@
 import { View, Text, Image } from 'react-native'
 import React from 'react'
 import {DrawerItemList, createDrawerNavigator} from '@react-navigation/drawer';
-import { Icon } from 'react-native-vector-icons/FontAwesome';
-import {Ionicons} from '@expo/vector-icons'
+import {Ionicons, AntDesign} from '@expo/vector-icons'
 import BottomTabNavigator from './BottomTabNavigator';
 import About from '../screens/About/About';
+// import Team from '../screens/team/Team';
 import { SafeAreaView } from 'react-native-safe-area-context';
-
-
 
 const Drawer = createDrawerNavigator()
 
@@ -24,7 +22,8 @@ const DrawerNavigation = () => {
                 alignItems: "center",
                 backgroundColor: "#98dbc6"
             }}>
-                {/* <Image /> */}
+
+                <Text style={{fontSize: 32, fontWeight: 'bold', marginBottom: 30}}>Jorie AI</Text>
                 <Text>Company Logo Here...</Text>
             </View>
             <DrawerItemList {...props}/>
@@ -64,14 +63,26 @@ const DrawerNavigation = () => {
             name='About'
             options={{
                  drawerLabel: 'About',
-                title: 'About',
+                title: 'About Us',
                 headerShadowVisible: true,
                 drawerIcon: () => (
-                    <Ionicons name='user-o' size={24} color='#666' />
+                    <AntDesign name='team' size={24} color='#666' />
                 )
             }}
             component={About}
         />
+        {/* <Drawer.Screen 
+            name='Team'
+            options={{
+                 drawerLabel: 'Meet The Team',
+                title: 'Team',
+                headerShadowVisible: true,
+                drawerIcon: () => (
+                    <AntDesign name='team' size={24} color='#666' />
+                )
+            }}
+            component={Team}
+        /> */}
 
     </Drawer.Navigator>
   )

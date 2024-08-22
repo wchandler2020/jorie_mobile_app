@@ -1,12 +1,12 @@
 import { View, Text } from 'react-native'
 import React from 'react'
 
-const About = () => {
+const Team = () => {
   return (
     <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
-      <Text >About</Text>
+      <Text >Our Team</Text>
     </View>
   )
 }
 
-export default About
+export default Team

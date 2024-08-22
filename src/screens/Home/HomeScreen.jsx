@@ -6,41 +6,42 @@ import {
   FlatList,
   TouchableOpacity,
   Image,
-  ImageBackground
-  
+  ImageBackground,
 } from "react-native";
 import React, { useState } from "react";
 import AppNavigation from "../../navigation/AppNavigation";
 import Header from "../../components/header/Header";
 import header_bg from "../../../assets/images/home_screen/app_home_bg.jpg";
+import example_logo from "../../../assets/images/home_screen/company_logo.jpg";
 import { kpiDummyData } from "../../../data/kpi_data";
 import ChartCard from "../../components/chartCards/ChartCard";
 import ExampleChart from "../../components/dataCharts/ExampleChart";
+import ArBucketsChart from "../../components/dataCharts/ArBucketsChart";
+import ClaimResultsTrendsChart from "../../components/dataCharts/ClaimResultsTrendsChart";
+import ComparisonChart from "../../components/dataCharts/ComparisonChart";
 // import ExampleChart2 from "../../components/ExampleChart2";
 // import { COLORS, SIZES, FONTS } from "../../constants/colors.js";
-
-
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     paddingBottom: 130,
-    shadowColor: '#333',
+    shadowColor: "#333",
     textShadowOffset: {
       width: 5,
-      height: 5
+      height: 5,
     },
-    shadowOpacity: 0.50,
+    shadowOpacity: 0.5,
     shadowRadius: 5,
-    elevation: 9
+    elevation: 9,
   },
   cardCantainer: {
     flex: 1,
     marginTop: 60,
-    alignItems: 'center',
+    alignItems: "center",
     paddingVertical: 24,
     paddingHorizontal: 24,
-  }
+  },
 });
 
 const HomeScreen = () => {
@@ -58,32 +59,82 @@ const HomeScreen = () => {
           backgroundColor: "#fff",
         }}
       >
-        <View style={{ marginTop: 12, marginBottom: 10, flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-          <Text style={{ fontSize: 20, fontWeight: 'bold' }}>{item.kpi_main_name}</Text>
+        <View
+          style={{
+            marginTop: 12,
+            marginBottom: 10,
+            flex: 1,
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
+          <Text style={{ fontSize: 20, fontWeight: "bold" }}>
+            {item.kpi_main_name}
+          </Text>
         </View>
 
-        <View style={{ marginTop: 12, flex: 1, justifyContent: 'flex-start', alignItems: 'center' }}>
-          <Text style={{ fontSize: 16, fontWeight: 'semi-bold' }}>{item.kpi_block_label_1}</Text>
-          <Text style={{ fontSize: 18, fontWeight: 400 }}>{item.kpi_value_1}</Text>
+        <View
+          style={{
+            marginTop: 12,
+            flex: 1,
+            justifyContent: "flex-start",
+            alignItems: "center",
+          }}
+        >
+          <Text style={{ fontSize: 16, fontWeight: "semi-bold" }}>
+            {item.kpi_block_label_1}
+          </Text>
+          <Text style={{ fontSize: 18, fontWeight: 400 }}>
+            {item.kpi_value_1}
+          </Text>
         </View>
-        <View style={{ marginTop: 12, flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-          <Text style={{ fontSize: 16, fontWeight: 'semi-bold' }}>{item.kpi_block_label_2}</Text>
-          <Text style={{ fontSize: 18, fontWeight: '400' }}>{item.kpi_value_2}</Text>
+        <View
+          style={{
+            marginTop: 12,
+            flex: 1,
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
+          <Text style={{ fontSize: 16, fontWeight: "semi-bold" }}>
+            {item.kpi_block_label_2}
+          </Text>
+          <Text style={{ fontSize: 18, fontWeight: "400" }}>
+            {item.kpi_value_2}
+          </Text>
         </View>
-        <View style={{ marginTop: 12, flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-          <Text style={{ fontSize: 16, fontWeight: 'semi-bold' }}>{item.kpi_block_label_3}</Text>
-          <Text style={{ fontSize: 18, fontWeight: '400' }}>{item.kpi_value_3}</Text>
+        <View
+          style={{
+            marginTop: 12,
+            flex: 1,
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
+          <Text style={{ fontSize: 16, fontWeight: "semi-bold" }}>
+            {item.kpi_block_label_3}
+          </Text>
+          <Text style={{ fontSize: 18, fontWeight: "400" }}>
+            {item.kpi_value_3}
+          </Text>
         </View>
       </TouchableOpacity>
     );
 
     return (
-      <View style={{ width: "100%", height: 300, flex: 1, justifyContent: "center" }}>
-        <ImageBackground
+      <View
+        style={{
+          width: "100%",
+          height: 300,
+          flex: 1,
+          justifyContent: "center",
+        }}
+      >
+        {/* <ImageBackground
           source={header_bg}
           resizeMode="cover"
           style={{ flex: 1, alignItems: "center" }}
-        >
+        > */}
           <View
             style={{
               marginTop: 10,
@@ -121,9 +172,13 @@ const HomeScreen = () => {
             <Text style={{ color: "#777", fontWeight: "500", fontSize: 16 }}>
               Dashboard
             </Text>
-            <Text style={{ color: "#fff", fontSize: 30, fontWeight: "600" }}>
+            {/* <Text style={{ color: "#fff", fontSize: 30, fontWeight: "600" }}>
               Client Name
-            </Text>
+            </Text> */}
+            <Image
+              source={example_logo}
+              style={{ height: 120, width: "90%", resizeMode: "contain",  margin: 'auto 0px', borderRadius: 12}}
+            />
           </View>
           <View
             style={{
@@ -143,7 +198,7 @@ const HomeScreen = () => {
               showsHorizontalScrollIndicator={false}
             />
           </View>
-        </ImageBackground>
+        {/* </ImageBackground> */}
       </View>
     );
   }
@@ -153,6 +208,9 @@ const HomeScreen = () => {
       <View style={styles.container}>{renderHeader()}</View>
       <View style={styles.cardCantainer}>
         <ExampleChart />
+        <ArBucketsChart />
+        <ClaimResultsTrendsChart />
+        {/* <ComparisonChart /> */}
         {/* <ExampleChart2 /> */}
       </View>
     </ScrollView>
